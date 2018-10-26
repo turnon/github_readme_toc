@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         github-readme-toc
 // @namespace    https://github.com/turnon/github_readme_toc
-// @version      0.0.2
+// @version      0.0.3
 // @description  add table of content for readme in github repo
 // @author       block24block@gmail.com
 // @match        https://github.com/*/*
@@ -17,6 +17,18 @@
     top: 200px;\
     left: calc((100% - 978px) / 2 + 1000px);\
     list-style-type: none;\
+    overflow-y: auto;\
+    bottom: 250px;\
+    direction: rtl;\
+}\
+#github-readme-toc::-webkit-scrollbar {\
+    width: 2px;\
+}\
+#github-readme-toc::-webkit-scrollbar-track {\
+    background: #d1d5da;\
+}\
+#github-readme-toc::-webkit-scrollbar-thumb {\
+    background: #0366d6;\
 }\
 #github-readme-toc a {\
     overflow: hidden;\
@@ -24,6 +36,13 @@
     width: 305px;\
     text-overflow: ellipsis;\
     display: block;\
+    direction: ltr;\
+    text-align: left;\
+    padding-left: 10px;\
+    text-decoration: none;\
+}\
+#github-readme-toc a:hover {\
+    background: #f1f4f7;\
 }'
 
     style.type = 'text/css'
