@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         github-readme-toc
 // @namespace    https://github.com/turnon/github_readme_toc
-// @version      0.0.3
+// @version      0.0.4
 // @description  add table of content for readme in github repo
 // @author       block24block@gmail.com
 // @match        https://github.com/*/*
@@ -14,7 +14,7 @@
         css = '\
 #github-readme-toc {\
     position: fixed;\
-    top: 200px;\
+    top: 186px;\
     left: calc((100% - 978px) / 2 + 1000px);\
     list-style-type: none;\
     overflow-y: auto;\
@@ -54,11 +54,11 @@
         item_begin = '<li><a href="#',
         item_end = '</a></li>'
 
-    document.querySelector('#readme .Box-body').querySelectorAll('h2, h3, h4, h5, h6').forEach(h => {
+    document.querySelector('#readme .Box-body').querySelectorAll('h1, h2, h3, h4, h5, h6').forEach(h => {
         fragments.push(item_begin)
         fragments.push(h.querySelector('a').id)
         fragments.push('">')
-        fragments.push(space.repeat(parseInt(h.nodeName.replace('H', '') - 2) * 2))
+        fragments.push(space.repeat(parseInt(h.nodeName.replace('H', '') - 1) * 2))
         fragments.push(h.innerText)
         fragments.push(item_end)
     })
